@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  
+  <!-- SEO Meta Tags -->
+  <title>Development Blog - Laravel, Flutter & Web Development Insights | Anass Mahmoudi</title>
+  <meta name="description" content="Expert insights on Laravel development, Flutter mobile apps, WordPress solutions, and modern web development from professional Full Stack Developer in Morocco." />
+  <meta name="keywords" content="Laravel Blog, Flutter Development Blog, Web Development Blog, WordPress Tips, Mobile App Development, Full Stack Developer Blog, Programming Tutorials Morocco" />
+  <meta name="author" content="Anass Mahmoudi" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://anassmahmoudi.dev/blogs.html" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://anassmahmoudi.dev/blogs.html" />
+  <meta property="og:title" content="Development Blog - Laravel, Flutter & Web Development Insights" />
+  <meta property="og:description" content="Expert insights on Laravel development, Flutter mobile apps, and modern web development from a professional Full Stack Developer." />
+  <meta property="og:image" content="https://anassmahmoudi.dev/images/blog-cover.jpg" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Development Blog - Laravel, Flutter & Web Development Insights" />
+  <meta name="twitter:description" content="Expert insights on Laravel development, Flutter mobile apps, and modern web development." />
+  <meta name="twitter:image" content="https://anassmahmoudi.dev/images/blog-cover.jpg" />
+  <meta name="twitter:creator" content="@AnassMahmoudi_" />
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/blogs.css">
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html#hero" aria-label="Anass Mahmoudi">
+        <img src="https://via.placeholder.com/120?text=Anass" alt="photo">
+        <div class="name">Anass Mahmoudi</div>
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1 style="color:var(--accent);text-align:center">Development Blog & Programming Insights</h1>
+    <p style="text-align:center;color:var(--muted)">Expert articles on Laravel development, Flutter mobile apps, WordPress solutions, web development best practices, and professional programming insights from Morocco.</p>
+
+    <div id="postsGrid" class="grid" aria-live="polite"></div>
+  </div>
+
+  <script>
+    // load posts.json and render cards
+    async function loadPosts(){
+      try{
+        const res = await fetch('posts.json');
+        const posts = await res.json();
+        const grid = document.getElementById('postsGrid');
+        posts.sort((a,b)=> new Date(b.date) - new Date(a.date));
+        posts.forEach(p=>{
+          const card = document.createElement('article'); card.className = 'card';
+          card.innerHTML = `
+            <img class="thumb" src="${p.image}" alt="${p.title}">
+            <div class="meta">${p.date}</div>
+            <div class="title">${p.title}</div>
+            <div class="excerpt">${p.excerpt}</div>
+            <a class="read" href="blog-post.html?id=${encodeURIComponent(p.id)}">Read More</a>
+          `;
+          grid.appendChild(card);
+        });
+      }catch(err){ console.error('Failed to load posts', err); document.getElementById('postsGrid').innerText = 'No posts found.' }
+    }
+    loadPosts();
+  </script>
+</body>
+</html>

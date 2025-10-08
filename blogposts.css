@@ -1,0 +1,14 @@
+
+:root{ --bg:#0b0b0b; --muted:#bdbdbd; --accent:#ff6b00; --max-width:900px }
+body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;color:#eaeaea;background:linear-gradient(180deg,#070707,#060606)}
+header{padding:18px 20px;border-bottom:1px solid rgba(255,255,255,0.03);background:rgba(0,0,0,0.5)}
+.nav{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.container{max-width:var(--max-width);margin:28px auto;padding:0 20px}
+.post{background:linear-gradient(180deg,#0f0f0f,#0b0b0b);padding:22px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.hero{width:100%;height:320px;object-fit:cover;border-radius:8px}
+h1{color:var(--accent)}
+.date{color:var(--muted);margin-bottom:12px}
+.content{color:#e6e6e6;line-height:1.7}
+.back{display:inline-block;margin-top:18px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--muted);text-decoration:none}
+img.responsive{max-width:100%;height:auto;border-radius:6px}
+pre{background:#070707;padding:12px;border-radius:8px;overflow:auto}

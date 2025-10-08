@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  
+  <!-- Dynamic SEO Meta Tags -->
+  <title id="pageTitle">Blog Post — Anass Mahmoudi Developer</title>
+  <meta name="description" id="metaDescription" content="Latest insights on Laravel development, Flutter mobile apps, and web development from professional Full Stack Developer Anass Mahmoudi in Morocco." />
+  <meta name="keywords" id="metaKeywords" content="Laravel Development, Flutter Mobile Apps, Web Development, Programming Tutorial, Full Stack Developer Blog" />
+  <meta name="author" content="Anass Mahmoudi" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" id="ogTitle" content="Blog Post — Anass Mahmoudi" />
+  <meta property="og:description" id="ogDescription" content="Latest insights on web development and programming." />
+  <meta property="og:image" id="ogImage" content="https://anassmahmoudi.dev/images/blog-default.jpg" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" id="twitterTitle" content="Blog Post — Anass Mahmoudi" />
+  <meta name="twitter:description" id="twitterDescription" content="Latest insights on web development." />
+  <meta name="twitter:creator" content="@AnassMahmoudi_" />
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/blogposts.css">
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html#hero" aria-label="Anass Mahmoudi">
+        <img src="https://via.placeholder.com/120?text=Anass" alt="photo">
+        <div class="name">Anass Mahmoudi</div>
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <article id="post" class="post" aria-live="polite">
+      <a class="back" href="blogs.html">⟵ Back to Blogs</a>
+      <h1 id="postTitle">Loading…</h1>
+      <div class="date" id="postDate"></div>
+      <img id="postImage" class="hero" src="" alt="">
+      <div id="postContent" class="content" style="margin-top:18px"> </div>
+    </article>
+  </div>
+
+  <script>
+    function qs(name){ const params = new URLSearchParams(location.search); return params.get(name); }
+    
+    function updateSEO(post) {
+      // Update title
+      document.title = `${post.title} | Anass Mahmoudi - Full Stack Developer Blog`;
+      document.getElementById('pageTitle').textContent = document.title;
+      
+      // Update meta description
+      const description = `${post.excerpt} - Expert insights from professional Full Stack Developer Anass Mahmoudi.`;
+      document.getElementById('metaDescription').content = description;
+      document.getElementById('metaKeywords').content = `${post.title}, Laravel Development, Flutter Mobile Apps, Web Development, Programming, Full Stack Developer Morocco`;
+      
+      // Update Open Graph
+      document.getElementById('ogTitle').content = post.title;
+      document.getElementById('ogDescription').content = description;
+      document.getElementById('ogImage').content = post.image;
+      
+      // Update Twitter
+      document.getElementById('twitterTitle').content = post.title;
+      document.getElementById('twitterDescription').content = description;
+    }
+    
+    async function loadPost(){
+      const id = qs('id');
+      if(!id) { window.location.href = 'blogs.html'; return; }
+      try{
+        const res = await fetch('posts.json'); const posts = await res.json();
+        const post = posts.find(p => p.id === id);
+        if(!post) { window.location.href = 'blogs.html'; return; }
+        
+        // Update SEO
+        updateSEO(post);
+        
+        // Update content
+        document.getElementById('postTitle').textContent = post.title;
+        document.getElementById('postDate').textContent = post.date;
+        document.getElementById('postImage').src = post.image;
+        document.getElementById('postContent').innerHTML = post.content;
+      }catch(err){ console.error(err); window.location.href = 'blogs.html'; }
+    }
+    loadPost();
+  </script>
+</body>
+</html>

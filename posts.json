@@ -1,0 +1,26 @@
+[
+  {
+    "id": "keto-guide",
+    "title": "The Ultimate Guide to Keto for Developers",
+    "date": "2025-09-10",
+    "image": "images/keto.jpg",
+    "excerpt": "Learn how to stay sharp while coding all night with a proper keto meal plan.",
+    "content": "<p>Keto isn't just about weight — it's about energy and focus. In this guide I break down a weekly plan, what to eat before long coding sessions, and how to keep electrolytes in check.</p><h3>Weekly sample</h3><ul><li><strong>Breakfast:</strong> 3 eggs, avocado, 20g flaxseed</li><li><strong>Lunch:</strong> Grilled mackerel, broccoli, olive oil</li><li><strong>Dinner:</strong> Turkey mince stir-fry with spinach</li></ul><p><img class=\"responsive\" src=\"images/keto-meal.jpg\" alt=\"keto meal\"> </p><p>More tips: stay hydrated, track potassium (aim ~4-5g/day), and time carbs around your workouts.</p>"
+  },
+  {
+    "id": "deploy-backend",
+    "title": "How I Deploy a Laravel API (Docker + DigitalOcean)",
+    "date": "2025-09-30",
+    "image": "images/deploy.jpg",
+    "excerpt": "A simple, repeatable workflow to build, test, and deploy APIs using CI and Docker.",
+    "content": "<p>Deploying should be boring — predictable steps, backups, and health checks. I use GitHub Actions to build images and push to a registry, then pull the image on a droplet and run via Docker Compose.</p><h3>Checklist</h3><ol><li>Automated tests pass</li><li>Build and push image</li><li>Migrate database with downtime window</li></ol><p><img class=\"responsive\" src=\"images/deploy-diagram.png\" alt=\"deploy diagram\"></p>"
+  },
+  {
+    "id": "productivity-habits",
+    "title": "Micro-Habits for 3x Productivity as a Dev",
+    "date": "2025-08-02",
+    "image": "images/habits.jpg",
+    "excerpt": "Small changes that compound: 45-minute sprints, inbox rules, and attention time blocks.",
+    "content": "<p>Productivity is boring — it's about protecting your attention. The key is predictable routines: time-box, batch, and say no to unnecessary meetings.</p><p><img class=\"responsive\" src=\"images/habits-graph.jpg\" alt=\"habits graph\"></p>"
+  }
+]

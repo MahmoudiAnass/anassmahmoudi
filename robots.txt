@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Allow search engines to crawl all pages
+Allow: /index.html
+Allow: /blogs.html
+Allow: /blog-post.html
+Allow: /style.css
+Allow: /blogs.css
+Allow: /blogposts.css
+Allow: /functionality.js
+Allow: /posts.json
+Allow: /images/
+
+# Disallow unnecessary files
+Disallow: /.*
+Disallow: /*.tmp
+Disallow: /*.log
+
+# Sitemap location
+Sitemap: https://anassmahmoudi.dev/sitemap.xml
+
+# Crawl delay (optional, helps with server load)
+Crawl-delay: 1
